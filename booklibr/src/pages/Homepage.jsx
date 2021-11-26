@@ -6,9 +6,8 @@ import { Typography, Container, Grid } from "@mui/material"
 
 function Homepage() {
     const dispatch = useDispatch()
-    const {shopName, bookData} = useSelector((state) => {
+    const {bookData} = useSelector((state) => {
         return {
-            shopName: state.shopName,
             bookData: state.bookData
         }
     })
@@ -17,16 +16,20 @@ function Homepage() {
     }, [])
 return (
     <div>
+        <div className="titleBar">
         <Typography variant="h4" component ="h5">
         Selamat Datang di Booklibr
         </Typography>
+        </div>
         <Container maxwidth ="sm">
             <Grid container spacing={2}>
         {
             bookData && bookData.length > 0 ? 
             bookData.map((e, index) => {
                 return (
-                        <BookBox/>
+                    <Grid item xs={4} key={index}>
+                        <BookBox value={e} id={index}/>
+                    </Grid>
                         )
                     }) : null
                 }

@@ -1,10 +1,22 @@
 import React from "react";
+import {useNavigate} from "react-router-dom"
+import {useDispatch} from "react-redux"
+import {setDetailData} from "../store/action"
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from "@mui/material"
 
-function BookBox() {
+function BookBox(props) {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const bookData = props.value
+  const index = props.id
+
+  function getDetail(params, data) {
+    dispatch(setDetailData(data))
+    navigate(`/detail/${params}`)
+  }
     return (
         <div>
-            <Card sx={{ maxWidth: 345 }}>
+            <Card sx={{ width: 345, maxHeight: 345}}>
               <CardMedia
                 component="img"
                 height="140"
@@ -12,17 +24,19 @@ function BookBox() {
                 alt="green iguana"
               />
               <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Lizard
+                <Typography gutterBottom variant="h5" component="div" noWrap={true}>
+                  {bookData.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Lizards are a widespread group of squamate reptiles, with over 6,000
-                  species, ranging across all continents except Antarctica
+                  {bookData.author}
                 </Typography>
               </CardContent>
               <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
+                <Button size="small" onClick={
+                  () => {
+                    getDetail(index, bookData)
+                  }
+                }>Learn More</Button>
               </CardActions>
             </Card>
         </div>

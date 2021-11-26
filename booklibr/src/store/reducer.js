@@ -2,7 +2,8 @@ import actionType from "./actionType";
 
 const booklibr = {
     shopName: "BookLibr",
-    bookData: []
+    bookData: [],
+    detailData: null
 }
 
 function reducer (state = booklibr, action) {
@@ -13,6 +14,12 @@ function reducer (state = booklibr, action) {
                 bookData: action.payload
             }
         ;
+        case actionType.SET_DETAIL_DATA:
+            return {
+                ... state, 
+                detailData: action.payload
+            }
+            ;
         default:
             return state;
     }

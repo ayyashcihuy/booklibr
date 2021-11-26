@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.titleBar {
+  margin-top:15px;
+  margin-bottom: 25px;
+}
+
+.detailContainer{
+  margin-top: 25px;
+  display: flex;
+  justify-content: center;
+}
+
+.descFont {
+  font-weight: 1000;
+}

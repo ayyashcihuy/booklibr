@@ -8,6 +8,13 @@ export const setData = (data) => {
     }
 }
 
+export const setDetailData = (data) => {
+    return {
+        type: actionType.SET_DETAIL_DATA,
+        payload: data
+    }
+}
+
 export const getData = () => {
     return(dispatch) => {
         axios({
