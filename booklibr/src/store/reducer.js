@@ -1,9 +1,11 @@
+import Favorite from "@mui/icons-material/Favorite";
 import actionType from "./actionType";
 
 const booklibr = {
     shopName: "BookLibr",
     bookData: [],
-    detailData: null
+    detailData: null,
+    favoriteData: []
 }
 
 function reducer (state = booklibr, action) {
@@ -19,7 +21,13 @@ function reducer (state = booklibr, action) {
                 ... state, 
                 detailData: action.payload
             }
-            ;
+        ;
+        case actionType.ADD_TO_FAVORITE:
+            return {
+                ... state,
+                favoriteData: [...state.favoriteData, action.payload]
+            }    
+        ;
         default:
             return state;
     }

@@ -8,6 +8,13 @@ export const setData = (data) => {
     }
 }
 
+export const addToFavoriteData = (data) => {
+    return {
+        type: actionType.ADD_TO_FAVORITE,
+        payload: data
+    }
+}
+
 export const setDetailData = (data) => {
     return {
         type: actionType.SET_DETAIL_DATA,
