@@ -8,7 +8,7 @@ function BookBox() {
               <CardMedia
                 component="img"
                 height="140"
-                image="/static/images/cards/contemplative-reptile.jpg"
+                image="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png"
                 alt="green iguana"
               />
               <CardContent>
